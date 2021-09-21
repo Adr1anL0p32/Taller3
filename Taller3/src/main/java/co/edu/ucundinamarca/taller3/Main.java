@@ -1,7 +1,7 @@
-
-package co.edu.ucundinamarca.taller2;
+package co.edu.ucundinamarca.taller3;
 
 import org.apache.log4j.Logger;
+import java.util.Scanner;
 
 /**
  * Clase Principal
@@ -12,25 +12,33 @@ public class Main {
     static Logger log = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        
-        Persona personaUno = new Persona("Deiber", 50, 230, 123456);
-        Persona personaDos = new Persona("Alejandro", 50, 230, 123456);
 
-        if (personaUno.equals(personaDos)) {
-            log.info("******* Instacias Iguales *********");
-        } else {
-            log.info("******* Instacias Diferentes *********");
-        }
-        
-        Animal animalUno = new Animal("Tony", "Pastor Aleman", 4, 7, 123456);
-        Animal animalDos = new Animal("Milu", "Pastor Aleman", 4, 9, 654321);
-        
-        if (personaUno.equals(personaDos)) {
-          log.info("******* Instacias Iguales *********");
-        } else {
-          log.info("******* Instacias Diferentes *********");
-        }
-        
+    Scanner intr = new Scanner(System.in);
+
+    log.debug("Digite el factorial: ");  
+    int num = intr.nextInt();
+    
+    int fact = Funciones.FactorialRec(num);
+    log.debug("El factorial de " + num + " es: " + fact);
+    
+    log.debug("");
+    
+    log.debug("Digite la base: ");
+    int base = intr.nextInt();
+    log.debug("Digite el exponente: ");
+    int exp = intr.nextInt();
+    
+    int pot = Funciones.Potencia(base, exp);
+    log.debug("El resultado de la potencia es: " + pot);
+
+    log.debug("");
+
+
+    int num1 = 40;
+    int num2 = 60;
+    int resultado = Mcd.mcd(num1, num2);
+    log.debug("El MCD de " + num1 + " " + num2 + " es: " + resultado);
+
     }
 
 }
